@@ -63,5 +63,7 @@
 	  <!-- mybatis -->
 	  <dependency org="org.mybatis" name="mybatis" rev="3.4.0" />
 	  <dependency org="org.mybatis" name="mybatis-spring" rev="1.2.2" />
+	  
+	  <!-- mysql -->
 	</dependencies>
 </ivy-module>
