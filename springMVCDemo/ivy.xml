@@ -40,5 +40,24 @@
 		<dependency org="commons-codec" name="commons-codec" rev="1.9"/>
 		
 		<dependency org="joda-time" name="joda-time" rev="2.9.9" />
+		
+		<!-- spring 
+	  <dependency org="org.springframework" name="spring-aspects" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-aop" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-core" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-beans" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-context" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-context-support" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-jdbc" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-expression" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-orm" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-oxm" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-web" rev="3.2.13.RELEASE" />
+	
+	  <dependency org="org.springframework" name="spring-instrument" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-jms" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-test" rev="3.2.13.RELEASE" />
+	  <dependency org="org.springframework" name="spring-tx" rev="3.2.13.RELEASE" />
+	  -->
 	</dependencies>
 </ivy-module>
