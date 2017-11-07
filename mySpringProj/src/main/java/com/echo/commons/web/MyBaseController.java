@@ -60,10 +60,10 @@ public class MyBaseController extends BaseController {
      * @param <T>
      * @return
      */
-    protected <T> T respFor(T respObj, int flag, String msg){
+    protected <T> T respFor(T respObj, Object flag, String msg){
         try{
             PropertyDescriptor flagPd = new PropertyDescriptor(FLAG, respObj.getClass());
-            flagPd.getWriteMethod().invoke(respObj, flag + "");
+            flagPd.getWriteMethod().invoke(respObj, flag.toString() + "");
             if(StringUtils.isNotEmpty(msg)){
                 PropertyDescriptor msgPd = new PropertyDescriptor(MSG, respObj.getClass());
                 msgPd.getWriteMethod().invoke(respObj, msg);
@@ -74,27 +74,7 @@ public class MyBaseController extends BaseController {
         return respObj;
     }
 
-    /**
-     * Controller通用设置接口返回码、返回Msg
-     * @param respObj
-     * @param flag
-     * @param msg
-     * @param <T>
-     * @return
-     */
-    protected <T> T respFor(T respObj, String flag, String msg){
-        try{
-            PropertyDescriptor flagPd = new PropertyDescriptor(FLAG, respObj.getClass());
-            flagPd.getWriteMethod().invoke(respObj, flag + "");
-            if(StringUtils.isNotEmpty(msg)){
-                PropertyDescriptor msgPd = new PropertyDescriptor(MSG, respObj.getClass());
-                msgPd.getWriteMethod().invoke(respObj, msg);
-            }
-        }catch (Exception e){
-            super.logger.error("Set flag msg Value error.", e);
-        }
-        return respObj;
-    }
+
 
     /**
      * 返回jsonP
