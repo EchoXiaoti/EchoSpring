@@ -1,0 +1,137 @@
+package com.echo.commons.base;
+
+import org.compass.annotations.SearchableId;
+import org.compass.annotations.SearchableProperty;
+import org.compass.annotations.Store;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * 实体类 - 基类
+ * ============================================================================
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * ----------------------------------------------------------------------------
+ *
+ * ============================================================================
+ */
+
+@MappedSuperclass
+public class BaseEntity implements Serializable {
+
+    private static final long serialVersionUID = -6718838800112233445L;
+
+    private String id;// ID
+    private Date createdate;// 创建日期
+    private Date modifydate;// 修改日期
+
+    // private Long createdate;// 创建日期
+    // private Long modifydate;// 修改日期
+
+    @SearchableId
+    @Id
+    @Column(length = 32, nullable = true)
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    // @SearchableProperty(store = Store.YES)
+    // @Column(updatable = false)
+    // public Date getcreatedate() {
+    // return createdate;
+    // }
+    //
+    // public void setcreatedate(Date createdate) {
+    // this.createdate = createdate;
+    // }
+    //
+    // @SearchableProperty(store = Store.YES)
+    // public Date getmodifydate() {
+    // return modifydate;
+    // }
+    //
+    // public void setmodifydate(Date modifydate) {
+    // this.modifydate = modifydate;
+    // }
+
+    @SearchableProperty(store = Store.YES)
+    @Column(updatable = false)
+    public Date getcreatedate() {
+        return createdate;
+    }
+
+    public void setcreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
+
+    @SearchableProperty(store = Store.YES)
+    public Date getmodifydate() {
+        return modifydate;
+    }
+
+    public void setmodifydate(Date modifydate) {
+        this.modifydate = modifydate;
+    }
+
+    // @SearchableProperty(store = Store.YES)
+    // @Column(updatable = false)
+    // public Long getcreatedate() {
+    // return createdate;
+    // }
+    //
+    // public void setcreatedate(Long createdate) {
+    // this.createdate = createdate;
+    // }
+    //
+    // @SearchableProperty(store = Store.YES)
+    // public Long getmodifydate() {
+    // return modifydate;
+    // }
+    //
+    // public void setmodifydate(Long modifydate) {
+    // this.modifydate = modifydate;
+    // }
+
+    @Override
+    public int hashCode() {
+        return id == null ? System.identityHashCode(this) : id.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass().getPackage() != obj.getClass().getPackage()) {
+            return false;
+        }
+        final BaseEntity other = (BaseEntity) obj;
+        if (id == null) {
+            if (other.getId() != null) {
+                return false;
+            }
+        } else if (!id.equals(other.getId())) {
+            return false;
+        }
+        return true;
+    }
+
+}
