@@ -2,7 +2,6 @@ package com.echo.mybator.mapper;
 
 import com.echo.mybator.entity.UUser;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 @Component("userDao")
 public interface UUserMapper {
