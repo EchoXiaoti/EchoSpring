@@ -69,12 +69,13 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 
         <!-- basePackage:指定sql映射文件/接口所在的包（自动扫描）-->
-        <property name="basePackage" value="com.echo.mybator.entity"></property>
+        <property name="basePackage" value="com.echo.mybator.mapper"></property>
 
         <!-- 扫描basePackage下所有以@MyBatisDao注解的接口
         <property name="annotationClass" value="com.echo.mybator.persistence.annotation.MyBatisDao"/>
-        -->
+
         <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
+        -->
     </bean>
 
     <!-- 4. 事务管理 -->
