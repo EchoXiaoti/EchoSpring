@@ -3,4 +3,15 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="webCommonUtil" class = "com.echo.commons.interceptor.WebCommonUtils">
+        <!--默认的请求编码-->
+        <property name="defaultCharset" value="UTF-8"/>
+        <property name="cookieCrossDomainSupport" value="true"/>
+        <property name="enableSetterCommonAttrs" value="true"/>
+        <property name="preventCaching" value="true"/>
+    </bean>
+
+    <bean id="jsonpSupportInterceptor" class="com.echo.commons.interceptor.JsonpSupportInterceptor">
+        <property name="callbackParameterName" value="callback"/>
+    </bean>
 </beans>

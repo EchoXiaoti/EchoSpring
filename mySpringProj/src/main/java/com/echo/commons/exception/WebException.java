@@ -1,4 +1,4 @@
-package com.echo.commons.base.exception;
+package com.echo.commons.exception;
 
 public class WebException extends BaseException {
 
