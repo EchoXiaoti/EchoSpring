@@ -54,10 +54,15 @@
 
         <!-- 当mybatis的xml文件和mapper接口不在相同包下时，需要用mapperLocations属性指定xml文件的路径 -->
         <!-- *是个通配符，代表所有的文件，**代表所有目录下 -->
-        <property name="mapperLocations" value="classpath*:com/echo/mybator/mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath*:com/echo/**/*.xml"/>
 
         <!-- 指定mybatis核心配置文件 -->
         <property name="configLocation" value="classpath:sqlMap-config.xml"></property>
+    </bean>
+
+    <!-- 在会话工厂中取出SqlSessionTemplate这个对象 -->
+    <bean id="sqlsessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
     </bean>
 
     <!-- 3. 自动扫描加载Sql映射文件/接口 -->
@@ -74,8 +79,13 @@
         <!-- 扫描basePackage下所有以@MyBatisDao注解的接口
         <property name="annotationClass" value="com.echo.mybator.persistence.annotation.MyBatisDao"/>
 
+
         <property name="sqlSessionTemplateBeanName" value="sqlSessionTemplate"/>
         -->
+    </bean>
+
+    <bean id="baseDAO" class="com.echo.commons.dao.BaseDaoSupport">
+        <property name="sqlSessionTemplate" ref="sqlsessionTemplate"/>
     </bean>
 
     <!-- 4. 事务管理 -->
@@ -91,5 +101,4 @@
 
     <!-- 定义JdbcTemplate的Bean -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" p:dataSource-ref="dataSource"></bean>
-
 </beans>

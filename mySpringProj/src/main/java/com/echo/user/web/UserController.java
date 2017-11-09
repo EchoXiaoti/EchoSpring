@@ -1,6 +1,7 @@
 package com.echo.user.web;
 
 import com.alibaba.fastjson.JSON;
+import com.echo.commons.exception.BaseException;
 import com.echo.commons.web.MyBaseController;
 import com.echo.mybator.entity.UUser;
 import com.echo.user.service.UserService;
@@ -16,8 +17,12 @@ public class UserController extends MyBaseController{
     private UserService userService;
 
     @RequestMapping(value = "/getUserInfo.do", method = RequestMethod.GET)
-    public String getUserInfo(){
-        UUser uUser = userService.getUserInfo();
+    public String getUserInfo(String userName) throws Exception {
+        try {
+            UUser uUser = userService.getUserInfoByUserName(userName);
+        } catch (BaseException e) {
+            e.printStackTrace();
+        }
 
         return "index";
     }
