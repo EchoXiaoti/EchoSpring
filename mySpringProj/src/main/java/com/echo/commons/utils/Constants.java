@@ -17,6 +17,8 @@ public class Constants {
 
     private static Logger logger = LoggerFactory.getLogger(Constants.class);
 
+    public final static String UTF8 = "UTF-8";
+
     public static class Jsonp{
         /** JSONP默认回调函数名 **/
         public final static String CALL_BACK_NAME = "callback";
